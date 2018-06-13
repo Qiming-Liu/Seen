@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FE6703</color>
+    <color name="colorPrimaryDark">#9d2057</color>
+    <color name="colorAccent">#ffdd34</color>
+
+    <!--导航栏图标文字颜色-->
+    <color name="tabTextColor1">#707070</color>
+    <color name="tabTextColor2">#2c2c2c</color>
+    <!--tabcolor-->
+    <color name="tabcolor">#ff530f</color>
+    <!--recyclercolor-->
+    <color name="recyclercolor">#ffdd34</color>
+    <!--搜素框处颜色 头像背景也有用-->
+    <color name="searchBackGroundColor">#FFE794</color>
+    <!--goodcolor-->
+    <color name="goodcolor1">#2c2c2c</color>
+    <color name="goodcolor2">#d81e06</color>
+    <!--title-->
+    <color name="titlecolor">#2c2c2c</color>
+    <!--下划线颜色-->
+    <color name="underlinecolor1">#8f8f8f</color>
+    <color name="underlinecolor2">#c3c3c3</color>
+    <!--刷新图标的颜色-->
+    <color name="color1">#ff0000</color>
+    <!--传召点击-->
+    <color name="clickChuanZhao">#ff9a0e</color>
+</resources>

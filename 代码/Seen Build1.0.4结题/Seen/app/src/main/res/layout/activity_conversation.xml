@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mainViewPagers.MI.ConversationActivity"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout124124124"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/recyclercolor">
+
+        <ImageView
+            android:id="@+id/back_imageview_conv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back1" />
+
+        <TextView
+            android:id="@+id/title_textview_conv"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="8"
+            android:gravity="center"
+            android:text="聊天窗口"
+            android:padding="1dp"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/main_viewpager_main"
+        android:background="@color/underlinecolor1"
+        />
+
+    <fragment
+        android:id="@+id/conversation"
+        android:name="io.rong.imkit.fragment.ConversationFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

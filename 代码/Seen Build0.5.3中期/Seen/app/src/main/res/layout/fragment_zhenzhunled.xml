@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/line3_zhenzhunlede"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/recyclercolor"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/recyclercolor"
+        android:id="@+id/linearLayout"
+        >
+
+        <ImageView
+            android:id="@+id/back_imageview_zhenzhunled_fragment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back1"
+            android:scaleType="fitCenter"
+            android:padding="4dp"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="45dp"
+            android:text="朕准了的"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:padding="1dp"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/underlinecolor1"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/message_recyclerview_zhenzhunled_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--导航栏处图片的大小-->
+    <dimen name="tab_radio_width">25dp</dimen>
+    <dimen name="tab_radio_height">25dp</dimen>
+    <!--good图片-->
+    <dimen name="good_checkbox_width">25dp</dimen>
+    <dimen name="good_checkbox_height">25dp</dimen>
+    <dimen name="goodText_checkbox_size">16dp</dimen>
+    <!--item message padingLeft-->
+    <dimen name="itemmessage_padingleft">10dp</dimen>
+    <!--导航栏高度-->
+    <dimen name="tab_height">60dp</dimen>
+    <!--标题栏高度-->
+    <dimen name="title_height">40dp</dimen>
+    <!--侧拉菜单大小-->
+    <dimen name="sliding_menu_offset">200dp</dimen>
+</resources>

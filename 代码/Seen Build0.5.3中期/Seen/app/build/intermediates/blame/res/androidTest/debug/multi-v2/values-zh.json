@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\Seen\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zh\\values-zh.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\matisse-0.4.3.aar\\fab664e7dbe22b36a2efdb431733ae64\\res\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,103,153,205,248,291,337,382,435,496,561,615,670",
+                        "endColumns": "47,49,51,42,42,45,44,52,60,64,53,54,50",
+                        "endOffsets": "98,148,200,243,286,332,377,430,491,556,610,665,716"
+                    }
+                }
+            ]
+        }
+    ]
+}
