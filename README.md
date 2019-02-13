@@ -34,6 +34,7 @@
 3.修改"com\a8plus1\seen\Bean\NetData.java"的服务器ip配置代码，使其网络请求你的服务器  
 4.编译apk文件  
 
+================点击下面的图片播放app演示视频============  
 [![点击播放](https://images.gitee.com/uploads/images/2019/0213/163441_2c9a9506_1320722.png "start.png")](https://www.bilibili.com/video/av43421459/)  
 
 作者 by ProSS  
