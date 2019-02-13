@@ -6,7 +6,7 @@
 可以快速部署运行项目，适合安卓初学者参考设计  
 
 ### 项目定位
-![welcome](https://images.gitee.com/uploads/images/2019/0213/155450_9b9d05be_1320722.png "welcome.png")
+![welcome](https://images.gitee.com/uploads/images/2019/0213/155450_9b9d05be_1320722.png "welcome.png")  
 本项目定位是校内聊天论坛工具。  
 在APP中每一个人都是一个“皇帝”，  
 每一个帖子可以看做是奏折。  
@@ -34,7 +34,6 @@
 3.修改"com\a8plus1\seen\Bean\NetData.java"的服务器ip配置代码，使其网络请求你的服务器  
 4.编译apk文件  
 
-![开始界面](https://images.gitee.com/uploads/images/2019/0213/163441_2c9a9506_1320722.png "start.png")
-点击查看视频演示[视频演示](https://www.bilibili.com/video/av43421459/)
+[![点击播放](https://images.gitee.com/uploads/images/2019/0213/163441_2c9a9506_1320722.png "start.png")](https://www.bilibili.com/video/av43421459/)  
 
 作者 by ProSS  
