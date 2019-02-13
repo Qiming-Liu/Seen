@@ -18,7 +18,7 @@
 1.在Windows服务器上安装SQL Server2008作为服务器数据库  
 2.安装完成后导入数据库文件"服务器\Database\Seen.sql"  
 3.使用Eclipse导入"服务器\JSP\"文件夹下的名为Seen的JavaWeb项目  
-4.修改"WEB-INF\classes\util\DBHelper.java"的服务器配置代码，使其与数据库连接正常  
+4.修改"WEB-INF\classes\util\DBHelper.java"的数据库配置代码，使其与数据库连接正常  
 5.编译项目为.war文件  
 5.安装Tomcat并运行.war文件  
 至此服务器部署完毕  
