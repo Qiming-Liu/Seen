@@ -255,11 +255,7 @@ public class LookTieFragment extends Fragment implements View.OnClickListener {
                                             } else {
                                                 reply_nickname = jsonObject_temp.getString("nickname");
                                             }
-                                            if (jsonObject_temp.optString("nickname", "").equals("")) {
-                                                reply_headImage = "  ";
-                                            } else {
-                                                reply_headImage = jsonObject_temp.getString("headImage");
-                                            }
+                                            reply_headImage = "";
                                             Bitmap reply_bp = b.convertStringToIcon(reply_headImage);
                                             Tiezi a2 = new Tiezi(reply_content, reply_nickname, replyTime, reply_bp, 2);
                                             tiezis.add(a2);
