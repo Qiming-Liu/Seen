@@ -3,8 +3,8 @@
 [English](https://github.com/Alan-Pross/Seen/blob/master/README.md) | [中文](https://github.com/Alan-Pross/Seen/blob/master/README_CN.md)
 
 ## 1. Introduction
-================ Click the picture below to play the app demo video ============
-[![Click to play](https://images.gitee.com/uploads/images/2019/0213/163441_2c9a9506_1320722.png "start.png")](https://www.youtube.com/watch?v= _2h4TFJoBZc)  
+================ Click the picture below to play the app demo video ============  
+[![Click to play](https://images.gitee.com/uploads/images/2019/0213/163441_2c9a9506_1320722.png "start.png")](https://www.youtube.com/watch?v=_2h4TFJoBZc)  
 
 ## 2. Project deployment tutorial
 1. The project is divided into two parts: client and server, which need to be compiled and deployed separately  
