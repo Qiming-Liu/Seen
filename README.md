@@ -1,6 +1,6 @@
 # Seen
 
-[English](https://www.rongcloud.cn/) | [中文](https://www.rongcloud.cn/)
+[English](https://github.com/Alan-Pross/Seen/blob/master/README.md) | [中文](https://github.com/Alan-Pross/Seen/blob/master/README_CN.md)
 
 ## 1. Introduction
 ================ Click the picture below to play the app demo video ============
