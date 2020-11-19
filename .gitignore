@@ -1,0 +1,10 @@
+/.idea/
+/Server/Nodejs/node_modules/
+/Server/Nodejs/package-lock.json
+/Client/Seen V0.5.3 (Not include IM)/Seen/Seen.iml
+/Client/Seen V0.5.3 (Not include IM)/Seen/local.properties
+/Client/Seen V0.5.3 (Not include IM)/Seen/.idea/
+/Client/Seen V0.5.3 (Not include IM)/Seen/.gradle/
+/Client/Seen V0.5.3 (Not include IM)/Seen/app/build/
+/Client/Seen V0.5.3 (Not include IM)/Seen/SlidingMenu-master/build/
+/Client/Seen V0.5.3 (Not include IM)/Seen/build/
