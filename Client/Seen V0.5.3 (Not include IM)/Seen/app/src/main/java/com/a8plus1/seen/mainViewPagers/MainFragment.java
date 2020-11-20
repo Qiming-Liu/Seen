@@ -112,7 +112,7 @@ public class MainFragment extends Fragment {
 
             @Override
             public void onSucceed(int what, Response<String> response) {
-                if(response.responseCode() == 200){
+                if (response.responseCode() == 200) {
                     String result = response.get();
                     try {
                         final JSONArray jsonArray = new JSONArray(result);
@@ -120,13 +120,14 @@ public class MainFragment extends Fragment {
                         //存所有帖子信息
                         tieZiInfosTemp = new String[jsonArray.length()];
 
-                        for(int i = 999; i < jsonArray.length() + 999; i++){
+                        for (int i = 999; i < jsonArray.length() + 999; i++) {
                             //String id = ((JSONObject)jsonArray.get(i)) .getString("tieID");
                             //Request<String> request2 = NoHttp.createStringRequest(NetData.urlGetNote, RequestMethod.POST);
                             Request<String> request2 = NoHttp.createStringRequest(NetData.urlGetNote, RequestMethod.POST);
                             RequestQueue queue = NoHttp.newRequestQueue();
                             try {
-                                request2.setDefineRequestBodyForJson((JSONObject)(jsonArray.get(i-999)));
+                                JSONObject jo = (JSONObject) (jsonArray.get(i - 999));
+                                request2.setDefineRequestBodyForJson(jo);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -139,15 +140,15 @@ public class MainFragment extends Fragment {
                                 @Override
                                 public void onSucceed(int what, Response<String> response) {
                                     num++;
-                                    if(response.responseCode() == 200){
-                                        tieZiInfosTemp[what-999] = response.get();
+                                    if (response.responseCode() == 200) {
+                                        tieZiInfosTemp[what - 999] = response.get();
                                     }
-                                    if(num == jsonArray.length() ){
+                                    if (num == jsonArray.length()) {
                                         num = 0;
                                         //获得所有帖子数据之后 开始解析
-                                        if(!tieZis.isEmpty()) tieZis.removeAll(tieZis);
-                                        for(int i = 0; i < jsonArray.length(); i ++){
-                                            if(!tieZiInfosTemp[i].equals("")){
+                                        if (!tieZis.isEmpty()) tieZis.removeAll(tieZis);
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+                                            if (!tieZiInfosTemp[i].equals("")) {
                                                 try {
                                                     JSONArray jsonObject1 = new JSONArray(tieZiInfosTemp[i]);
                                                     JSONObject jsonObjectTemp = null;
@@ -162,7 +163,7 @@ public class MainFragment extends Fragment {
 
                                                     // public TieZi(String tieZiId, String userID, String userNickName, String title, String context, String picString, int watchCount, int goodCount, String firstTime) {
                                                     tieZis.add(new TieZi(
-                                                            ((JSONObject)jsonArray.get(i)).getString("tieID"),
+                                                            ((JSONObject) jsonArray.get(i)).getString("tieID"),
                                                             jsonObjectTemp.getString("t_userID"),
                                                             jsonObjectTemp.getString("nickname"),
                                                             jsonObjectTemp.getString("title"),
@@ -171,7 +172,7 @@ public class MainFragment extends Fragment {
                                                             jsonObjectTemp.getInt("pageviews"),
                                                             jsonObjectTemp.getInt("agree"),
                                                             jsonObjectTemp.getString("time"),
-                                                            jsonObjectTemp.optString("Image1","")
+                                                            jsonObjectTemp.optString("Image1", "")
                                                     ));
                                                     MainRecyclerViewAdapter.notifyDataSetChanged();
                                                 } catch (JSONException e) {
@@ -195,8 +196,8 @@ public class MainFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Log.i("cyd111",result);
-                }else {
+                    Log.i("cyd111", result);
+                } else {
                     Log.i("cyd222", "connect failed");
                 }
             }
@@ -227,11 +228,11 @@ public class MainFragment extends Fragment {
 //        }
     }
 
-    public void refreshUI(){
+    public void refreshUI() {
         MainRecyclerViewAdapter.notifyDataSetChanged();
     }
 
-    public void refrshData(){
+    public void refrshData() {
         initData();
     }
 }

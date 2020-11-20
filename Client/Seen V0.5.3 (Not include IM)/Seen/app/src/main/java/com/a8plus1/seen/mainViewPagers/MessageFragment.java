@@ -136,8 +136,7 @@ public class MessageFragment extends Fragment {
                         tieZiInfosTemp = new String[jsonArray.length()];
 
                         for(int i = 999; i < jsonArray.length() + 999; i++){
-                            //String id = ((JSONObject)jsonArray.get(i)) .getString("tieID");
-                            //Request<String> request2 = NoHttp.createStringRequest(NetData.urlGetNote, RequestMethod.POST);
+
                             Request<String> request2 = NoHttp.createStringRequest(NetData.urlGetNote, RequestMethod.POST);
                             RequestQueue queue = NoHttp.newRequestQueue();
                             try {

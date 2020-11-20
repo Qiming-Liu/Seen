@@ -325,65 +325,35 @@ public class LookTieFragment extends Fragment {
 
             @Override
             public void onStart(int what) {
-                System.out.println("正在登录服务器--发送回复");
+                System.out.println("发送回复");
             }
 
             @Override
             public void onSucceed(int what, Response<String> response) {
                 if(response.responseCode() == 200){
-                    System.out.println("登录通信服务器成功");
                     Toast.makeText(getContext(), "正在加载…", Toast.LENGTH_SHORT).show();
                     Intent intent = getActivity().getIntent();
                     getActivity().finish();
                     startActivity(intent);
                 }else{
-                    System.out.println("登录通信服务器失败");
+                    System.out.println("发送回复失败");
                 }
             }
 
             @Override
             public void onFailed(int what, Response<String> response) {
-                System.out.println("登录失败");
+                System.out.println("发送回复失败");
             }
             @Override
             public void onFinish(int what) {
-                System.out.println("登录通信完成");
+                System.out.println("发送回复失败");
             }
         });
 
 
     }
-//    private void changeGood(int n) {//修改点赞 0是没点赞 1是点了赞 改动
-//        if (n == 0) {
-//            tmep_agree++;
-//            send_good_picture.setImageResource(R.drawable.nogood);
-//            send_good.setText("  "+Integer.toString(tmep_agree)+"  ");
-//            send_good.setTextColor(Color.parseColor("#FFFF0000"));
-//            falg = 1;
-//        } else {
-//            tmep_agree--;
-//            send_good_picture.setImageResource(R.drawable.good);
-//            send_good.setText("朕准了");
-//            send_good.setTextColor(Color.parseColor("#FF000000"));
-//            falg=0;
-//        }
-//    }
     private void initTiezi() {
         sendResultWithNohttp_look();//读取帖子相关信息和评论
-        /*Tiezi a1 = new Tiezi("内容1","昵称1","回复时间1", R.drawable.down,1);
-        tiezis.add(a1);
-        Tiezi a2 = new Tiezi("内容2","昵称1","回复时间1", R.drawable.good,2);
-        tiezis.add(a2);
-        Tiezi a3 = new Tiezi("内容3","昵称1","回复时间1", R.drawable.good,2);
-        tiezis.add(a3);
-        Tiezi a4 = new Tiezi("内容4","昵称1","回复时间1", R.drawable.good,2);
-        tiezis.add(a4);
-        Tiezi a5 = new Tiezi("内容5","昵称1","回复时间1", R.drawable.good,2);
-        tiezis.add(a5);
-        Tiezi a6 = new Tiezi("内容6","昵称1","回复时间1", R.drawable.good,2);
-        tiezis.add(a6);
-        Tiezi a7 = new Tiezi("内容7","昵称1","回复时间1", R.drawable.good,2);
-        tiezis.add(a7);*/
         System.out.println("--------"+tiezis.size());
 
     }

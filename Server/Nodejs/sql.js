@@ -22,13 +22,19 @@ class User {
     }
 }
 
+var staticTieID = 0;
+
 class Tie {
     static id = 0;
 
     constructor(t_userID, time, title, content, Image1, Image2, Image3) {
-        this.tieID = id++;
+        this.tieID = staticTieID++;
         this.t_userID = t_userID;
-        this.time = time;
+        if (time === '' || time === undefined || time.length < 16) {
+            this.time = new Date().format("yyyy-MM-dd hh:mm:ss");
+        } else {
+            this.time = time;
+        }
         this.title = title;
         this.content = content;
         this.pageviews = 0;
@@ -40,173 +46,225 @@ class Tie {
     }
 }
 
+var staticCommentsID = 0;
+
 class Comments {
     static id = 0;
 
     constructor(tieID, content, c_userID, c_time) {
-        this.commentID = id++;
+        this.commentID = staticCommentsID++;
         this.tieID = tieID;
         this.content = content;
         this.c_userID = c_userID;
-        this.c_time = c_time;
+        if (c_time === '' || c_time === undefined || c_time.length < 16) {
+            this.c_time = new Date().format("yyyy-MM-dd hh:mm:ss");
+        } else {
+            this.c_time = c_time;
+        }
         commentsList.push(this);
     }
 }
 
 //sql tools class
 var SQL = {
-    useSQL: settings.useSQL,
-    LoginServlet: (userID, password, res) => {
-        if (this.useSQL) {
+    LoginServlet: (userID, password) => {
+        if (settings.useSQL) {
             SQLConnection.query('SELECT * FROM use WHERE userID = ? AND password = ?', [userID, password], function (error, results, fields) {
                 if (error) {
-                    console.log(error);
-                    res.send(404);
+                    return 'res.status(200).json({code: \'false\'})';
                 }
                 if (results.length > 0) {
-                    res.status(200).json({code: 'true'});
+                    return 'res.status(200).json({code: \'true\'})';
                 }
-                res.send(404);
+                return 'res.status(200).json({code: \'false\'})';
             });
         } else {
             for (let i = 0; i < userList.length; i++) {
                 if (userList[i].userID === userID && userList[i].password === password) {
-                    res.status(200).json({code: 'true'});
+                    return 'res.status(200).json({code: \'true\'})';
                 }
             }
-            res.send(404);
+            return 'res.status(200).json({code: \'false\'})';
         }
     },
-    RegisterServlet: (userID, password, res) => {
-        if (this.useSQL) {
+    RegisterServlet: (userID, password) => {
+        if (settings.useSQL) {
             // Todo
         } else {
             for (let i = 0; i < userList.length; i++) {
-                if (userList[i].userID === userID && userList[i].password === password) {
-                    res.send(404);
+                if (userList[i].userID === userID) {
+                    return 'res.status(200).json({code: \'false\'})';
                 }
             }
             new User(userID, password);
-            res.status(200).json({code: 'true'});
+            return 'res.status(200).json({code: \'true\'})';
         }
     },
-    IconServlet: (userID, headImage = '', res) => {
+    IconServlet: (userID, headImage = '') => {
         if (headImage === '') {//look for headImage
-            if (this.useSQL) {
+            if (settings.useSQL) {
                 // Todo
             } else {
                 for (let i = 0; i < userList.length; i++) {
                     if (userList[i].userID === userID) {
-                        res.status(200).json({headImage: userList[i].headImage});
+                        return 'res.status(200).json({headImage: userList[i].headImage})';
                     }
                 }
-                res.send(404);
+                return 'res.send(404)';
             }
         } else {//change headImage
-            if (this.useSQL) {
+            if (settings.useSQL) {
                 // Todo
             } else {
                 for (let i = 0; i < userList.length; i++) {
                     if (userList[i].userID === userID) {
                         userList[i].headImage = headImage;
-                        res.send(200);
+                        return 'res.send(200)';
                     }
                 }
-                res.send(404);
+                return 'res.send(404)';
             }
         }
     },
-    InformationServlet: (userID, nickname, signature, res) => {
-        if (this.useSQL) {
+    InformationServlet: (userID, nickname, signature) => {
+        if (settings.useSQL) {
             // Todo
         } else {
             for (let i = 0; i < userList.length; i++) {
                 if (userList[i].userID === userID) {
                     userList[i].nickname = nickname;
                     userList[i].signature = signature;
-                    res.send(200);
+                    return 'res.send(200)';
                 }
             }
-            res.send(404);
+            return 'res.send(404)';
         }
     },
-    GetInformationServlet: (userID, res) => {
-        if (this.useSQL) {
+    GetInformationServlet: (userID) => {
+        if (settings.useSQL) {
             // Todo
         } else {
             for (let i = 0; i < userList.length; i++) {
                 if (userList[i].userID === userID) {
-                    res.status(200).json({
+                    let json = {
                         userID: userList[i].userID,
                         nickname: userList[i].nickname,
                         signature: userList[i].signature,
                         headImage: userList[i].headImage
-                    });
+                    }
+                    return 'res.status(200).json(' + JSON.stringify(json) + ')';
                 }
             }
-            res.send(404);
+            return 'res.send(404)';
         }
     },
-    TieServlet: (content, t_userID, time, title, Image1, Image2, Image3, res) => {
-        if (this.useSQL) {
+    TieServlet: (content, t_userID, time, title, Image1, Image2, Image3) => {
+        if (settings.useSQL) {
             // Todo
         } else {
             new Tie(t_userID, time, title, content, Image1, Image2, Image3);
-            res.send(200);
+            return 'res.send(200)';
         }
     },
-    GetTieServlet: (tieID, res) => {
-        if (this.useSQL) {
+    GetTieServlet: (tieID) => {
+        if (settings.useSQL) {
             // Todo
         } else {
+            let tieL = [];
             for (let i = 0; i < tieList.length; i++) {
-                if (tieList[i].tieID === tieID) {
-                    for (let i = 0; i < userList.length; i++) {
-                        if (userList[i].userID === tieList[i].t_userID) {
-                            let tie = {
-                                t_userID: tieList[i].t_userID,
-                                title: tieList[i].title,
-                                content: tieList[i].content,
-                                time: tieList[i].time,
-                                nickname: userList[i].nickname,
-                                pageviews: tieList[i].pageviews,
-                                agree: tieList[i].agree,
-                                circleImage: userList[i].headImage,
-                                Image1: tieList[i].Image1,
-                                Image2: tieList[i].Image2,
-                                Image3: tieList[i].Image3
-                            };
-                            res.status(200).json(tie);
-                        }
+                //客户端代码有bug，发不过来任何tieID，这里直接返回所有帖子信息
+                // if (String(tieList[i].tieID) === tieID) {
+                for (let j = 0; j < userList.length; j++) {
+                    if (userList[j].userID === tieList[i].t_userID) {
+                        let tie = {
+                            t_userID: tieList[i].t_userID,
+                            title: tieList[i].title,
+                            content: tieList[i].content,
+                            time: tieList[i].time,
+                            nickname: userList[j].nickname,
+                            pageviews: tieList[i].pageviews,
+                            agree: tieList[i].agree,
+                            circleImage: userList[j].headImage,
+                            Image1: tieList[i].Image1,
+                            Image2: tieList[i].Image2,
+                            Image3: tieList[i].Image3
+                        };
+                        tieL.push(tie);
+                        return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
                     }
                 }
+                // }
             }
         }
     },
-    CommentServlet: () => {
+    CommentServlet: (tieID, c_userID, content, c_time) => {
+        if (settings.useSQL) {
+            // Todo
+        } else {
+            new Comments(tieID, content, c_userID, c_time);
+            return 'res.send(200)';
+        }
     },
-    SortTieServlet: (Sort, res) => {
-        if (Sort === 1) {
-            if(this.useSQL) {
-                // Todo
-            } else {
-                let tieL = {};
-                for (let i = tieList.length - 1; i > -1; i--) {
-                    tieL[tieList[i].tieID] = 1;
+    SortTieServlet: () => {
+        if (settings.useSQL) {
+            // Todo
+        } else {
+            let tieL = [];
+            for (let i = tieList.length - 1; i > -1; i--) {
+                tieL.push({'tieID': tieList[i].tieID});
+            }
+            return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
+        }
+    },
+    SearchTieServlet: (Search) => {
+        if (settings.useSQL) {
+            // Todo
+        } else {
+            let tieL = [];
+            for (let i = tieList.length - 1; i > -1; i--) {
+                if (tieList[i].title.indexOf(Search) !== -1 || tieList[i].content.indexOf(Search) !== -1 || tieList[i].nickname.indexOf(Search) !== -1) {
+                    tieL.push({'tieID': tieList[i].tieID});
                 }
-                res.status(200).json(tieL);
             }
+            return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
         }
     },
-    SearchTieServlet: () => {
-
+    HistoryTieServlet: (userID) => {
+        if (settings.useSQL) {
+            // Todo
+        } else {
+            let tieL = [];
+            for (let i = tieList.length - 1; i > -1; i--) {
+                if (tieList[i].t_userID === userID) {
+                    tieL.push({'tieID': tieList[i].tieID});
+                }
+            }
+            return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
+        }
     },
-    HistoryTieServlet: () => {
-
+    PlusServlet: (Plus) => {
+        if (settings.useSQL) {
+            // Todo
+        } else {
+            for (let i = tieList.length - 1; i > -1; i--) {
+                if (tieList[i].tieID === Plus) {
+                    tieList[i].agree++;
+                }
+            }
+            return 'res.send(200)';
+        }
     },
-    PlusServlet: () => {
-    },
-    SeenServlet: () => {
+    SeenServlet: (Seen) => {
+        if (settings.useSQL) {
+            // Todo
+        } else {
+            for (let i = tieList.length - 1; i > -1; i--) {
+                if (tieList[i].tieID === Seen) {
+                    tieList[i].pageviews++;
+                }
+            }
+            return 'res.send(200)';
+        }
     }
 }
 
