@@ -48,7 +48,6 @@ dependencies {
     compile 'com.lzy.net:okhttpserver:1.0.3'
     compile 'com.zhy:okhttputils:2.0.0'
     compile 'com.yanzhenjie.nohttp:nohttp:1.1.1'
-    compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
     compile 'com.jakewharton:butterknife:5.1.1'
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.support:cardview-v7:26.1.0'

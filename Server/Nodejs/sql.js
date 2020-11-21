@@ -107,7 +107,8 @@ var SQL = {
             } else {
                 for (let i = 0; i < userList.length; i++) {
                     if (userList[i].userID === userID) {
-                        return 'res.status(200).json({headImage: userList[i].headImage})';
+                        let send = {headImage: userList[i].headImage};
+                        return 'res.status(200).json(' + JSON.stringify(send) + ')';
                     }
                 }
                 return 'res.send(404)';
@@ -172,28 +173,40 @@ var SQL = {
         } else {
             let tieL = [];
             for (let i = 0; i < tieList.length; i++) {
-                //客户端代码有bug，发不过来任何tieID，这里直接返回所有帖子信息
-                // if (String(tieList[i].tieID) === tieID) {
-                for (let j = 0; j < userList.length; j++) {
-                    if (userList[j].userID === tieList[i].t_userID) {
-                        let tie = {
-                            t_userID: tieList[i].t_userID,
-                            title: tieList[i].title,
-                            content: tieList[i].content,
-                            time: tieList[i].time,
-                            nickname: userList[j].nickname,
-                            pageviews: tieList[i].pageviews,
-                            agree: tieList[i].agree,
-                            circleImage: userList[j].headImage,
-                            Image1: tieList[i].Image1,
-                            Image2: tieList[i].Image2,
-                            Image3: tieList[i].Image3
-                        };
-                        tieL.push(tie);
-                        return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
+                if (String(tieList[i].tieID) === String(tieID)) {
+                    for (let j = 0; j < userList.length; j++) {
+                        if (String(userList[j].userID) === String(tieList[i].t_userID)) {
+                            //get tie information
+                            let tie = {
+                                t_userID: tieList[i].t_userID,
+                                title: tieList[i].title,
+                                content: tieList[i].content,
+                                time: tieList[i].time,
+                                nickname: userList[j].nickname,
+                                pageviews: tieList[i].pageviews,
+                                agree: tieList[i].agree,
+                                circleImage: userList[j].headImage,
+                                Image1: tieList[i].Image1,
+                                Image2: tieList[i].Image2,
+                                Image3: tieList[i].Image3
+                            };
+                            tieL.push(tie);
+                            //get tie comments
+                            for (let j = 0; j < commentsList.length; j++) {
+                                if (String(commentsList[j].tieID) === String(tieID)) {
+                                    let comment = {
+                                        tieID: commentsList[j].tieID,
+                                        c_userID: commentsList[j].c_userID,
+                                        content: commentsList[j].content,
+                                        c_time: commentsList[j].c_time,
+                                    };
+                                    tieL.push(comment);
+                                }
+                            }
+                            return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
+                        }
                     }
                 }
-                // }
             }
         }
     },
@@ -205,15 +218,26 @@ var SQL = {
             return 'res.send(200)';
         }
     },
-    SortTieServlet: () => {
+    SortTieServlet: (Sort) => {
         if (settings.useSQL) {
             // Todo
         } else {
-            let tieL = [];
-            for (let i = tieList.length - 1; i > -1; i--) {
-                tieL.push({'tieID': tieList[i].tieID});
+            if (Sort === 1) {
+                let tieL = [];
+                for (let i = tieList.length - 1; i > -1; i--) {
+                    tieL.push({'tieID': tieList[i].tieID});
+                }
+                return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
             }
-            return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
+            if (Sort === 2) {
+                let tieL = [];
+                let copyTieList = JSON.parse(JSON.stringify(tieList));
+                copyTieList.sort(compareTie());
+                for (let i = 0; i < copyTieList.length; i++) {
+                    tieL.push({'tieID': copyTieList[i].tieID});
+                }
+                return 'res.status(200).json(' + JSON.stringify(tieL) + ')';
+            }
         }
     },
     SearchTieServlet: (Search) => {
@@ -222,7 +246,7 @@ var SQL = {
         } else {
             let tieL = [];
             for (let i = tieList.length - 1; i > -1; i--) {
-                if (tieList[i].title.indexOf(Search) !== -1 || tieList[i].content.indexOf(Search) !== -1 || tieList[i].nickname.indexOf(Search) !== -1) {
+                if (tieList[i].title.indexOf(Search) !== -1 || tieList[i].content.indexOf(Search) !== -1) {
                     tieL.push({'tieID': tieList[i].tieID});
                 }
             }
@@ -235,7 +259,7 @@ var SQL = {
         } else {
             let tieL = [];
             for (let i = tieList.length - 1; i > -1; i--) {
-                if (tieList[i].t_userID === userID) {
+                if (String(tieList[i].t_userID) === String(userID)) {
                     tieL.push({'tieID': tieList[i].tieID});
                 }
             }
@@ -247,7 +271,7 @@ var SQL = {
             // Todo
         } else {
             for (let i = tieList.length - 1; i > -1; i--) {
-                if (tieList[i].tieID === Plus) {
+                if (String(tieList[i].tieID) === String(Plus)) {
                     tieList[i].agree++;
                 }
             }
@@ -259,11 +283,33 @@ var SQL = {
             // Todo
         } else {
             for (let i = tieList.length - 1; i > -1; i--) {
-                if (tieList[i].tieID === Seen) {
+                if (String(tieList[i].tieID) === String(Seen)) {
                     tieList[i].pageviews++;
                 }
             }
             return 'res.send(200)';
+        }
+    }
+}
+
+new User('A', 'a');
+new Tie('A', '1999-10-10 10:10:10', 'Title', 'Content', '', '', '');
+new Tie('A', '1999-10-10 10:10:10', 'Title2', 'Content', '', '', '');
+
+function compareTie() {
+    return function (obj1, obj2) {
+        let val1 = obj1['agree'];
+        let val2 = obj2['agree'];
+        if (val1 < val2) {
+            return 1;
+        } else if (val1 > val2) {
+            return -1;
+        } else {
+            if (obj1['pageviews'] < obj2['pageviews']) {
+                return 1;
+            } else if (obj1['pageviews'] > obj2['pageviews']) {
+                return -1;
+            } else return 0;
         }
     }
 }

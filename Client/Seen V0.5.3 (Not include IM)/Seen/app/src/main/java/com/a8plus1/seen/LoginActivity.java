@@ -19,7 +19,6 @@ import com.a8plus1.seen.Bean.NetData;
 import com.a8plus1.seen.Bean.UserInfo;
 import com.a8plus1.seen.Json.JUser;
 import com.yanzhenjie.nohttp.NoHttp;
-import com.yanzhenjie.nohttp.OkHttpNetworkExecutor;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
 import com.yanzhenjie.nohttp.rest.Request;
