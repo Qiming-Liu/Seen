@@ -33,7 +33,7 @@ node app.js
 ```
 npm install是用来安装服务器所需要的模块  
 node app.js是用来运行app.js的代码  
-如果需要修改配置，可以在settings.js文件中修改 
+如果需要修改配置，可以在settings.js文件中修改   
 如果你只是想简单使用，即可跳过下面的服务器部署编译部署过程  
 
 #### 3.1.1前置要求
