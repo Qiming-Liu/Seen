@@ -35,14 +35,29 @@
 使用Tomcat并运行.war文件
 至此服务器配置完成
 
+#### 3.1.4简易部署 (2020年11月22日更新)  
+直接使用Node.js进行服务器的部署，简单，方便，快捷，无需数据库  
+不熟悉服务器操作的同学建议之间使用此方法  
+目前不支持连接数据库，不支持IM功能  
+1. 下载并安装Node.js  
+2. 打开/Server/Nodejs/目录，在此目录打开cmd（可以在资源管理器的文件夹路经输入cmd回车）  
+3. 在cmd中运行以下代码  
+```
+npm install  
+node app.js  
+```
+npm install是用来安装服务器所需要的模块  
+node app.js是用来运行app.js的代码  
+如果需要修改配置，可以在settings.js文件中修改  
+
 ### 3.2客户端
 #### 3.2.1前置要求
-Android Studio
+Android Studio (推荐，其他版本有可能打不开项目)  
 
 #### 3.2.2代码编译
 1. 使用Android Studio导入Client/Seen的Android工程  
-Client/Seen V0.5.3 (Not include IM) 不包含即时通讯聊天(IM)，只包含论坛的功能  
-Client/Seen V1.0.4 (Include IM) 包含全部功能  
+Client/Seen V0.5.3 (Not include IM)/Seen 不包含即时通讯聊天(IM)，只包含论坛的功能，推荐此版本，无需更多配置    
+Client/Seen V1.0.4 (Include IM)/Seen 包含全部功能，需要配置融云    
 2. 修改"com\a8plus1\seen\Bean\NetData.java",将IP地址改为你的服务器的公网IP地址，使其网络请求你的服务器  
 3. 如果你使用了Include IM的工程，则需要对IM进行配置，具体查看3.3融云IM，如果没有使用IM，跳过这步  
 4. 编译apk文件  
