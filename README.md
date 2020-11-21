@@ -19,6 +19,11 @@
 3. Install SQL Server 2008 R2 as the server database to your server  
 4. Install Tomcat to your server  
 
+22/11/2020 update: Nodejs Server (No need SQL, easy to use)  
+1. Install Nodejs  
+2. Run: npm install  
+3. Run: node app.js  
+
 #### 2.1.2 Code compilation
 1. Use Eclipse to import the JavaWeb code of Server/JSP  
 2. Modify the database configuration at "WEB-INF\classes\util\DBHelper.java" to make it connect to your database  
@@ -29,7 +34,7 @@ Use Tomcat load the .war file
 
 ### 3.2 Client
 #### 3.2.1 Prerequisites
-Android Studio  
+Android Studio 3.0.1 (Recommendation, may not work with other versions)
 
 #### 3.2.2 Code compilation
 1. Use Android Studio to import Client/Seen's Android project  
