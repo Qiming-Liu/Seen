@@ -59,7 +59,7 @@ node app.js是用来运行app.js的代码
 如果你只是想简单使用，即可跳过下面的客户端部署编译部署过程  
 
 #### 3.2.1前置要求
-Android Studio (推荐，其他版本有可能打不开项目)  
+Android Studio 3.0.1(推荐，其他版本有可能报错)  
 
 #### 3.2.2代码编译
 1. 使用Android Studio导入Client/Seen的Android工程  
