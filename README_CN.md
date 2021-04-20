@@ -36,6 +36,8 @@ node app.js是用来运行app.js的代码
 如果需要修改配置，可以在settings.js文件中修改   
 如果你只是想简单使用，即可跳过下面的服务器部署编译部署过程  
 
+### 完全部署  
+如果你想使用完整的功能，请按照以下说明进行部署  
 #### 3.1.1前置要求
 1.Eclipse  
 2.一台具有公网IP的Windows服务器(腾讯云，阿里云等)  
@@ -77,4 +79,4 @@ Client/Seen V1.0.4 (Include IM)/Seen 包含全部功能，需要配置融云
 代码中已经写好和融云的各种配置代码，只需按照下面的步骤将App Key,App Secret和Token替换为你自己的(我的融云账号已停止使用)  
 1. [申请融云账号](https://www.rongcloud.cn/)  
 2. 申请免费试用的IM功能，取得App Key,App Secret和Token  
-3. 查看融云文档，将替换你申请得到的App Key,App Secret和Token  
+3. 查看融云文档，替换你申请得到的App Key,App Secret和Token  
