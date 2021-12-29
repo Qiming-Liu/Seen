@@ -8,9 +8,9 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    env:
+      APP_PATH_053: '"./Client/Seen V0.5.3 (Not include IM)/Seen"'
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 11
@@ -21,6 +21,6 @@ jobs:
         cache: gradle
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x ${APP_PATH_053}/gradlew
     - name: Build with Gradle
-      run: ./Client/Seen V0.5.3 (Not include IM)/Seen/gradlew build
+      run: ${APP_PATH_053}/gradlew build
