@@ -38,11 +38,11 @@ Android Studio 3.0.1 (Recommendation, may not work with other versions)
 
 #### 3.2.2 Code compilation
 1. Use Android Studio to import Client/Seen's Android project  
-Client/Seen V0.5.3 (Not include IM) does not include instant messaging (IM)  
-Client/Seen V1.0.4 (Include IM) includes all functions  
-2. Modify "com\a8plus1\seen\Bean\NetData.java", change the IP address to the public IP address of your server, and make the network request your server  
-3. If you use the Include IM project, you need to configure IM, check 3.3 Rongyun IM for details, if you are not using IM, skip this step  
-4. Compile the Android project    
+Client/Seen-0.5.3-NoIM does not include instant messaging (IM)  
+Client/Seen-1.0.4-IM includes all functions  
+1. Modify "com\a8plus1\seen\Bean\NetData.java", change the IP address to the public IP address of your server, and make the network request your server  
+2. If you use the Include IM project, you need to configure IM, check 3.3 Rongyun IM for details, if you are not using IM, skip this step  
+3. Compile the Android project    
 
 ### 3.3 Rongyun IM Operation steps
 1. [Apply for Rongyun Account](https://www.rongcloud.cn/)  

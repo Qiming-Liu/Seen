@@ -64,11 +64,11 @@ Android Studio 3.0.1(推荐，其他版本有可能报错)
 
 #### 3.2.2代码编译
 1. 使用Android Studio导入Client/Seen的Android工程  
-Client/Seen V0.5.3 (Not include IM)/Seen 不包含即时通讯聊天(IM)，只包含论坛的功能，推荐此版本，无需更多配置    
-Client/Seen V1.0.4 (Include IM)/Seen 包含全部功能，需要配置融云    
-2. 修改"com\a8plus1\seen\Bean\NetData.java",将IP地址改为你的服务器的公网IP地址，使其网络请求你的服务器  
-3. 如果你使用了Include IM的工程，则需要对IM进行配置，具体查看3.3融云IM，如果没有使用IM，跳过这步  
-4. 编译apk文件  
+Client/Seen-0.5.3-NoIM/Seen 不包含即时通讯聊天(IM)，只包含论坛的功能，推荐此版本，无需更多配置    
+Client/Seen-1.0.4-IM/Seen 包含全部功能，需要配置融云    
+1. 修改"com\a8plus1\seen\Bean\NetData.java",将IP地址改为你的服务器的公网IP地址，使其网络请求你的服务器  
+2. 如果你使用了Include IM的工程，则需要对IM进行配置，具体查看3.3融云IM，如果没有使用IM，跳过这步  
+3. 编译apk文件  
 至此客户端配置完成，可以测试使用啦  
 
 ### 3.3融云IM
