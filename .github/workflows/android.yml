@@ -13,10 +13,10 @@ jobs:
       APP_PATH_053: '"${{ github.workspace }}/Client/Seen V0.5.3 (Not include IM)/Seen"'
     steps:
     - uses: actions/checkout@v2
-    - name: set up JDK 1.8
+    - name: set up JDK 8
       uses: actions/setup-java@v2
       with:
-        java-version: '1.8'
+        java-version: '8'
         distribution: 'adopt'
         
     - name: Grant execute permission for gradlew
