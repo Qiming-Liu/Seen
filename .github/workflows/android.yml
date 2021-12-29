@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      APP_PATH_053: '"${{ github.workspace }}/Client/Seen-0.5.3-Not-IM/Seen"'
+      APP_PATH_053: '${{ github.workspace }}/Client/Seen-0.5.3-Not-IM/Seen'
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 8
