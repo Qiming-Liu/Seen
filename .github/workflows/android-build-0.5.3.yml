@@ -20,12 +20,12 @@ jobs:
     - name: assembleDebug
       run: bash ./gradlew assembleDebug --stacktrace
       
-    - name: install tree
-      run: sudo apt-get install tree
-    - name: tree
-      run: tree
+#     - name: install tree
+#       run: sudo apt-get install tree
+#     - name: tree
+#       run: tree
       
     - uses: actions/upload-artifact@v2
       with:
         name: upload-apk
-        path: ./app/build
+        path: ./app/build/outputs/apk/debug/app-debug.apk
