@@ -13,8 +13,8 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
-    - name: sudo apt-get install tree
-      run: sudo apt-get install tree
+    - name: apt-get install tree
+      run: apt-get install tree
     - name: tree
       run: tree
     - name: cd
