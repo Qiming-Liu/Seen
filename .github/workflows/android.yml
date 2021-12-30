@@ -19,12 +19,14 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         
-    - uses: hmarr/debug-action@v2
     - name: Grant execute permission for gradlew
-      run: |
-        ls
-        chmod +x gradlew
-        gradlew assembleDebug
+      run: ls
+      run: sudo apt-get install tree
+      run: tree
+      run: cd /home/runner/work/Seen/Seen
+      run: ls
+      run: chmod +x gradlew
+      run: gradlew assembleDebug
       
     - uses: actions/upload-artifact@v2
       with:
