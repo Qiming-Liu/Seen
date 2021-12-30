@@ -18,9 +18,9 @@ jobs:
     - name: Permission for gradlew
       run: sudo chmod +x gradlew
     - name: assembleDebug
-      run: ./gradlew assembleDebug
+      run: bash ./gradlew assembleDebug --stacktrace
       
     - uses: actions/upload-artifact@v2
       with:
         name: upload-apk
-        path: ./app/build/outputs/apk/app-debug.apk
+        path: app/build/outputs/apk/app-debug.apk
