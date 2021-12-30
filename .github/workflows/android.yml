@@ -1,9 +1,5 @@
 name: Android CI
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: workflow_dispatch
 defaults:
   run:
     shell: bash
@@ -21,10 +17,10 @@ jobs:
         
     - name: Grant execute permission for gradlew
       run: |
-        chmod +x gradlew
-        gradlew assembleDebug
+        chmod +x ./gradlew
+        ./gradlew assembleDebug
       
     - uses: actions/upload-artifact@v2
       with:
         name: upload-apk
-        path: app/build/outputs/apk/app-debug.apk
+        path: ./app/build/outputs/apk/app-debug.apk
