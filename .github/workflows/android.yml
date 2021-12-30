@@ -19,18 +19,6 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         
-    - uses: Rishabh510/Path-lister-action@master
-      with:
-          path: "./"
-          type: "*"
-
-    - name: Output results
-      run: |
-        echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
-        for i in ${{ steps.pl.outputs.paths }}; do
-        echo $i
-        done
-        
     - uses: hmarr/debug-action@v2
     - name: Grant execute permission for gradlew
       run: |
