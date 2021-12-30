@@ -24,8 +24,8 @@ jobs:
 #       run: sudo apt-get install tree
 #     - name: tree
 #       run: tree
-      
+
     - uses: actions/upload-artifact@v2
       with:
         name: upload-apk
-        path: ./app/build/outputs/apk/debug/app-debug.apk
+        path: Client/Seen-0.5.3-NoIM/Seen/app/build/outputs/apk/debug/app-debug.apk
