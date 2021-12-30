@@ -1,9 +1,9 @@
-name: Android CI
+name: Android-Build-1.0.4
 on: workflow_dispatch
 defaults:
   run:
     shell: bash
-    working-directory: Client/Seen-0.5.3-NoIM/Seen
+    working-directory: Client/Seen-1.0.4-IM/Seen
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,13 +19,8 @@ jobs:
       run: sudo chmod +x gradlew
     - name: assembleDebug
       run: bash ./gradlew assembleDebug --stacktrace
-      
-#     - name: install tree
-#       run: sudo apt-get install tree
-#     - name: tree
-#       run: tree
 
     - uses: actions/upload-artifact@v2
       with:
-        name: upload-apk
-        path: Client/Seen-0.5.3-NoIM/Seen/app/build/outputs/apk/debug/app-debug.apk
+        name: Seen-1.0.4
+        path: Client/Seen-1.0.4-IM/Seen/app/build/outputs/apk/debug/app-debug.apk
