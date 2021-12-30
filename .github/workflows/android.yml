@@ -19,13 +19,19 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         
-    - name: Grant execute permission for gradlew
+    - name: ls
       run: ls
+    - name: sudo apt-get install tree
       run: sudo apt-get install tree
+    - name: tree
       run: tree
+    - name: cd
       run: cd /home/runner/work/Seen/Seen
+    - name: ls
       run: ls
+    - name: chmod +x gradlew
       run: chmod +x gradlew
+    - name: gradlew assembleDebug
       run: gradlew assembleDebug
       
     - uses: actions/upload-artifact@v2
