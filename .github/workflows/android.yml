@@ -11,7 +11,11 @@ jobs:
 
     - uses: actions/checkout@v2
     - name: cd
-      run: cd Client/Seen-0.5.3-Not-IM/Seen
+      run: cd Client
+    - name: cd
+      run: cd Seen-0.5.3-Not-IM
+    - name: cd
+      run: cd Seen
     - name: set up JDK 8
       uses: actions/setup-java@v2
       with:
