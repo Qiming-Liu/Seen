@@ -5,7 +5,7 @@ android {
     // 取消掉系统对.9图片的检查
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
-    buildToolsVersion "26.0.3"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.a8plus1.seen"
