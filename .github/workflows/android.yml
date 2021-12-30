@@ -3,10 +3,13 @@ on: workflow_dispatch
 defaults:
   run:
     shell: bash
-    working-directory: Client/Seen-0.5.3-Not-IM/Seen
+    
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Client/Seen-0.5.3-Not-IM/Seen
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 8
@@ -17,8 +20,8 @@ jobs:
         
     - name: Grant execute permission for gradlew
       run: |
-        chmod +x ./gradlew
-        ./gradlew assembleDebug
+        chmod +x gradlew
+        gradlew assembleDebug
       
     - uses: actions/upload-artifact@v2
       with:
