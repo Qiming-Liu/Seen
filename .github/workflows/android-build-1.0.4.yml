@@ -22,5 +22,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: Seen-1.0.4
+        name: Seen-v1.0.4.apk
         path: Client/Seen-1.0.4-IM/Seen/app/build/outputs/apk/debug/app-debug.apk
