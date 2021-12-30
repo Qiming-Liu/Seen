@@ -11,7 +11,7 @@ jobs:
       run:
         working-directory: ./Client/Seen-0.5.3-Not-IM/Seen
     steps:
-    - uses: hmarr/debug-action@v2
+
     - uses: actions/checkout@v2
     - name: set up JDK 8
       uses: actions/setup-java@v2
@@ -19,8 +19,22 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         
+    - uses: Rishabh510/Path-lister-action@master
+      with:
+          path: "./"
+          type: "*"
+
+    - name: Output results
+      run: |
+        echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
+        for i in ${{ steps.pl.outputs.paths }}; do
+        echo $i
+        done
+        
+    - uses: hmarr/debug-action@v2
     - name: Grant execute permission for gradlew
       run: |
+        ls
         chmod +x gradlew
         gradlew assembleDebug
       
