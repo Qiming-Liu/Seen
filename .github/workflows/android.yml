@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./Client/Seen-0.5.3-Not-IM/Seen
+        working-directory: Client/Seen-0.5.3-Not-IM/Seen
     steps:
 
     - uses: actions/checkout@v2
@@ -19,16 +19,12 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         
-    - name: ls
-      run: ls
     - name: sudo apt-get install tree
       run: sudo apt-get install tree
     - name: tree
       run: tree
     - name: cd
-      run: cd /home/runner/work/Seen/Seen
-    - name: ls
-      run: ls
+      run: cd /home/runner/work/Seen/Seen/Client/Seen-0.5.3-Not-IM/Seen
     - name: chmod +x gradlew
       run: chmod +x gradlew
     - name: gradlew assembleDebug
